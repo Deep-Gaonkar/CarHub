@@ -8,7 +8,10 @@ import { useRouter } from 'next/navigation'
 import { useState, Fragment } from 'react'
 
 
-const CustomFilter: React.FC<CustomFilterProps> = ({ title, options, setFilter }) => {
+export default function CustomFilter<T>({
+  options,
+  setFilter
+}: CustomFilterProps<T>) {
   const [selected, setSelected] = useState(options[0])
 
   return (
@@ -17,7 +20,7 @@ const CustomFilter: React.FC<CustomFilterProps> = ({ title, options, setFilter }
         value={selected}
         onChange={(event) => {
           setSelected(event)
-          setFilter(event.value)
+          setFilter(event.value as unknown as T)
         }}
       >
         <div className='relative w-fit z-10'>
@@ -61,5 +64,3 @@ const CustomFilter: React.FC<CustomFilterProps> = ({ title, options, setFilter }
     </div>
   )
 }
-
-export default CustomFilter
