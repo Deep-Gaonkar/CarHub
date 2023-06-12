@@ -1,10 +1,8 @@
 'use client'
 
 import { CustomFilterProps } from '@/types'
-import { updateSearchParams } from '@/utils'
 import { Listbox, Transition } from '@headlessui/react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { useState, Fragment } from 'react'
 
 
